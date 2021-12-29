@@ -1,2 +1,2 @@
 # tcc
-tentaremos criar um game P2E de navegador
+tentaremos criar um game P2E de navegador;  

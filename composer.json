@@ -1,0 +1,6 @@
+{
+    "name": "joaolucasmoraisortiz/tcc",
+    "autoload": {
+        "App\\" : "app/"
+    }
+}
