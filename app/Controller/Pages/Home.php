@@ -6,6 +6,7 @@
 namespace App\Controller\Pages;
 
 use \App\Utils\View;
+use \App\Model\Entity\Organization;
 
 class Home extends Pages{
 
@@ -20,10 +21,12 @@ class Home extends Pages{
      */
     public static function getHome(){
 
+        $obOrganization = new Organization;
+
         //Acessa a classe View e realiza o render da home, retornando a resposta da func. render($arg)
         $pageContent =  View::render('pages/home', [
-            'title' => 'https://picsum.photos/612',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi maxime amet accusamus vel saepe id, incidunt enim doloribus non eius quisquam corrupti deleniti alias rem quidem aperiam laboriosam velit!'
+            'title' => $obOrganization->name,
+            'description' => $obOrganization->description
         ]);
 
         //retorna uma função do parente (ou seja, de quem a classe estende), que cria uma página
