@@ -6,6 +6,20 @@ namespace App\Utils;
 
 class View{
 
+    /**
+     * Variáveis padrões da View
+     * @var array
+     */
+    private static $vars = [];
+
+    /**
+     * Método responsável por definir os dados iniciais da classe;
+     * @param array
+     */
+    public static function init($vars = []){
+        self::$vars = $vars;
+    }
+
     /* getContentView($arg) é uma função pública e estática, ou seja, não haverá: $var = new getContentView($arg) */
 
     /**
@@ -48,6 +62,11 @@ class View{
         /* $contentView guarda o conteúdo da view, ele recebe o getContenView($arg) da classe atual - View */
         $contentView = self::getContentView($view);
 
+        /* 
+            Une as variáveis padrões definidas em init() com as recebidas do usuário
+        */
+        $vars = array_merge(self::$vars, $vars);
+
         /*  
             Pegamos as chaves (nomes) das variáveis do array $vars, e jogamos em $keys, ficando:
             [0] => nome_var1
@@ -66,10 +85,12 @@ class View{
             return '{{' . $item . '}}';
         }, $keys);
         
+        
         /* 
             Retornamos a página ($contentView) alterando nela onde ouver as chaves ($keys),
             com os valores das variáveis ($vars);
         */
         return str_replace($keys, array_values($vars), $contentView);
     }
+
 }
