@@ -224,6 +224,36 @@ class Router
     }
 
     /**
+     * Método utilizado para fazer as requisições POST em uma rota
+     * @param string $route
+     * @param array $params
+     */
+    public function post($route, $params = [])
+    {
+        $this->addRoute('POST', $route, $params);
+    }
+
+    /**
+     * Método utilizado para fazer as requisições PUT em uma rota
+     * @param string $route
+     * @param array $params
+     */
+    public function put($route, $params = [])
+    {
+        $this->addRoute('PUT', $route, $params);
+    }
+
+    /**
+     * Método utilizado para fazer as requisições DELETE em uma rota
+     * @param string $route
+     * @param array $params
+     */
+    public function delete($route, $params = [])
+    {
+        $this->addRoute('DELETE', $route, $params);
+    }
+
+    /**
      * Método utilizado por executar a rota
      * @return Response
      */

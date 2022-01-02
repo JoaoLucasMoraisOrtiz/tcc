@@ -10,18 +10,18 @@
 
 <!-- objetivos listados do projeto -->
 <h1>Lista dos Objetivos do Projeto</h1>
-- []Estrutura do projeto em MVC<br>
-- []Criação do CRUD para Usuários<br>
-- []Criação do CRUD para as plantas<br>
-- []Criação do CRUD para os itens<br>
-- []Criação do CRUD para os pets<br>
-- []Adicionar as mecânicas climáticas<br>
-- []Adicionar a mecânica das plantas - crescimento, reprodução, morte*<br>
-- []Adicionar a mecânica dos itens do jogo - aumentar a taxa de crescimento, reduzir ou anular os efeitos climáticos, aumentar a reprodução, etc...<br>
-- []Adicionar as mecânicas das mudanças climáticas<br>
-- []Criação da interface gráfica - Main Page, Store, User, etc...<br>
-- []Criação gráfica das plantas, dos itens e dos pets<br>
-- []Revisão do projeto<br>
+- [ ]Estrutura do projeto em MVC<br>
+- [ ]Criação do CRUD para Usuários<br>
+- [ ]Criação do CRUD para as plantas<br>
+- [ ]Criação do CRUD para os itens<br>
+- [ ]Criação do CRUD para os pets<br>
+- [ ]Adicionar as mecânicas climáticas<br>
+- [ ]Adicionar a mecânica das plantas - crescimento, reprodução, morte*<br>
+- [ ]Adicionar a mecânica dos itens do jogo - aumentar a taxa de crescimento, reduzir ou anular os efeitos climáticos, aumentar a reprodução, etc...<br>
+- [ ]Adicionar as mecânicas das mudanças climáticas<br>
+- [ ]Criação da interface gráfica - Main Page, Store, User, etc...<br>
+- [ ]Criação gráfica das plantas, dos itens e dos pets<br>
+- [ ]Revisão do projeto<br>
 <br>
 <p><small>morte da planta não é exatamente que ela se destrua, mecanica sendo desenvolvida</small></p>
 <hr>
