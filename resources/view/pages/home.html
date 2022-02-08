@@ -1,10 +1,49 @@
 <!-- onde há chaves duplas ({{}}), será um conteúdo a ser substituído por uma variável -->
+<style>
+    body,
+    html {
+        width: 100%;
+        overflow-x: hidden;
+    }
 
-<h3>{{title}}</h3>
-<hr>
-<p>{{description}}</p>
+    body {
+        width: 100%;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        resize: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: Poppins, Arial, Helvetica, sans-serif;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .buttonHeader{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+</style>
+
+<div class="header">
+    <h3>{{title}}</h3>
+    <div class="buttonHeader">
+        <a href="{{URL}}"><button class="btn btn-primary">HOME</button></a>
+        <a href="{{URL}}/store"><button class="btn btn-primary">STORE</button></a>
+    </div>
+
+</div>
+
 <hr>
 
-<a href="{{URL}}"><button class="btn btn-primary">HOME</button></a>
-<a href="{{URL}}/store"><button class="btn btn-primary">STORE</button></a>
 <p>TESTE NOVAMENTE DA HOME</p>
