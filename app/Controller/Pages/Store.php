@@ -25,8 +25,8 @@ class Store extends Pages{
 
         //Acessa a classe View e realiza o render da home, retornando a resposta da func. render($arg)
         $pageContent =  View::render('pages/store', [
-            'title' => 'o lugar onde vai ficar nossa loja',
-            'description' => 'VOCÊ ESTÁ EM STORE'
+            'title' => 'STORE',
+            'description' => 'Nossa Loja',
         ]);
 
         return self::getPages('Store', $pageContent);

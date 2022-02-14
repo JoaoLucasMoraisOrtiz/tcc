@@ -7,6 +7,16 @@ use \App\Http\Response;
 
 //define a rota para um GET em '/'
 $obRouter->get('/', [
+
+    //quando o GET for em '/store':
+    function(){
+        return new Response(200, Pages\Login::getLogin());
+
+    }
+]);
+
+//define a rota para um GET em '/home'
+$obRouter->get('/home', [
     //quando o GET for em '/':
     function(){
 
@@ -21,6 +31,16 @@ $obRouter->get('/store', [
     //quando o GET for em '/store':
     function(){
         return new Response(200, Pages\Store::getStore());
+
+    }
+]);
+
+//define a rota para um GET em '/lab'
+$obRouter->get('/lab', [
+
+    //quando o GET for em '/store':
+    function(){
+        return new Response(200, Pages\Laboratory::getLaboratory());
 
     }
 ]);

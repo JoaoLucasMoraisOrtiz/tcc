@@ -7,8 +7,8 @@ namespace App\Model\Entity;
 use ActionsPosts;
 use ActionsUsers;
 
-require_once "../API/controller/Posts/ActionsPosts.php";
-require_once "../API/controller/Users/ActionsUsers.php";
+require __DIR__ . "/../API/controller/Posts/ActionsPosts.php";
+require __DIR__ . "/../API/controller/Users/ActionsUsers.php";
 
 class Organization
 {

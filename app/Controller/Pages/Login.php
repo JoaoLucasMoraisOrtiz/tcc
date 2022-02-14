@@ -8,24 +8,19 @@ namespace App\Controller\Pages;
 use \App\Utils\View;
 use \App\Model\Entity\Organization;
 
-class Home extends Pages{
-
-    /*  gethome() é uma função publica, ou seja, pode ser acessada de outros arquivos com um 
-        require ou um "use" - por utilizarmos namespaces;
-        Ela é estática, pois nunca haverá: $var = new getHome().
-    */
+class Login extends Pages{
 
     /**
-     * Método responsável por retornar o conteúdo (view) da nossa Home;
+     * Método responsável por retornar o conteúdo (view) do nosso Login;
      * @return string;
      */
-    public static function getHome(){
+    public static function getLogin(){
 
         $obOrganization = new Organization;
 
         //Acessa a classe View e realiza o render da home, retornando a resposta da func. render($arg)
-        $pageContent =  View::render('pages/home', [
-            'title' => 'HOME',
+        $pageContent =  View::render('pages/login', [
+            'title' => 'LOGIN',
             'description' => '            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi reprehenderit suscipit quis aliquid excepturi culpa omnis porro debitis. Consequatur optio voluptas vel? Repellendus dolorum voluptatibus repellat vero nihil necessitatibus optio!
             '
         ]);
