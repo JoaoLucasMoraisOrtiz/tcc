@@ -122,6 +122,11 @@ class CreatePlants
         $leafRight = $plant['leafRight'];
         $top = $plant['top'];
         $trunk = $plant['trunk'];
+        $life = $plant['life'];
+
+        if($life <= 0 ){
+            return 'error!!!';
+        }
 
         $level = ['leafLeft' => $leafLeft, 'leafRight' => $leafRight, 'top' => $top, 'trunk' => $trunk];
 
@@ -221,6 +226,7 @@ class CreatePlants
                 'id' => '003002001001',
                 'userId' => '456',
                 'level' => 'comun',
+                'life' => '2',
                 'leafLeft' => ['FolhaEsquerda001', 'comun'],
                 'leafRight' => ['FolhaDireita001', 'comun'],
                 'top' => ['Topo001', 'comun'],
@@ -228,6 +234,8 @@ class CreatePlants
             ];
 
             $level = $this->getLevels($plant);
+
+            $verifyUpgrade = false;
 
             foreach ($level as $key => $value) {
                 if (count($level[$key]) > 0) {
@@ -237,18 +245,34 @@ class CreatePlants
                         $select = random_int(1, 100);
 
                         if ($select <= $possibility) {
-                            //fazer a alteração da planta, destruíndo-a no jogo, e criando sua filha, que a substituí???
-                            print_r('ok / ');
-                            print_r($content);
-                            exit;
-                        }else{
+                            //torna verdadeira a condição de que a planta foi criada
+                            $verifyUpgrade = true;
+                            break;
+                        } else {
 
-                            //lidar com as sementes inférteis;
-                            print_r('fail');
-                            print_r($content);
+                            //caso a planta não tenha upado neste quisito, continua;
+                            continue;
                         }
                     }
+                   
+                    //verifica se a planta foi upada, caso verdadeiro, para a execução do foreach
+                    if ($verifyUpgrade) {
+                        break;
+                    }else{
+                        //caso falso, continua
+                        continue;
+                    }
                 }
+            }
+
+            //se a planta upou, vamos criar esta nova planta na DB, e retirar uma vida da planta mãe
+            if ($verifyUpgrade) {
+                print_r($content);
+                print_r('ok / <br>');
+            }else{
+
+                //se não, vamos fazer o usuário ganhar dinheiro
+                print_r('$$$');
             }
             exit;
 
