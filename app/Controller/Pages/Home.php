@@ -26,8 +26,7 @@ class Home extends Pages{
         //Acessa a classe View e realiza o render da home, retornando a resposta da func. render($arg)
         $pageContent =  View::render('pages/home', [
             'title' => 'HOME',
-            'description' => '            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi reprehenderit suscipit quis aliquid excepturi culpa omnis porro debitis. Consequatur optio voluptas vel? Repellendus dolorum voluptatibus repellat vero nihil necessitatibus optio!
-            '
+            'dir' => '../../resources/view/pages/'
         ]);
 
         //retorna uma função do parente (ou seja, de quem a classe estende), que cria uma página
