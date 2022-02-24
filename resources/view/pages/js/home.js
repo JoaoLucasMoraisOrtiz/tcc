@@ -5,7 +5,7 @@ plantsWidth = document.getElementById('game').clientWidth
 //variável de configuração do phaser com openGL
 var config = {
     type: Phaser.WEBGL,
-    parent: 'phaser-example',
+    parent: 'game',
     width: plantsWidth,
     height: plantsHeight,
     scene: {
