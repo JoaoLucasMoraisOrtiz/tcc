@@ -29,44 +29,33 @@
         text-align: center;
     }
 
-    .container{
-        margin: 0;
-    }
-
     .buttonHeader {
-        width: 100%;
-        text-align: center;
-        justify-content: space-evenly;
+        
+        justify-content: center;
         display: flex;
         flex-direction: column;
     }
 
     .btn {
-        margin-bottom: 2vh;
+        margin: 1vh 8.2vw;
     }
 
     .corpo {
-        height: 72vh;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .rodape {
-        height: 28vh;
-        background-color: unset;
-    }
-
-    .plantas {
-        height: 100%;
-        width: 100%;
-        /* padding-right: calc(50% - 38vw); */
-        padding-top: 10vh;
+        height: 100vh;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: end;
     }
 
+    .plantas {
+        width: 80%;
+        /* padding-right: calc(50% - 38vw); */
+    }
+
+    canvas{
+        position: fixed;
+    }
+    /* 
 
     .card {
         height: auto;
@@ -96,19 +85,18 @@
     .imgAction{
         min-width: 100px;
     }
-
+ */
 </style>
 
-<div class="container">
-    <div class="corpo">
-        <div class="plantas" id="game">
-            <script src="{{dir}}js/home.js"></script>
-        </div>
-            <div class="buttonHeader">
-                <a href="{{URL}}"><button class="btn btn-success">LOGIN</button></a>
-                <a href="{{URL}}/home"><button class="btn btn-primary">HOME</button></a>
-                <a href="{{URL}}/store"><button class="btn btn-danger">STORE</button></a>
-                <a href="{{URL}}/lab"><button class="btn btn-warning">LABORATORY</button></a>
-            </div>
+
+<div class="corpo">
+    <div class="plantas" id="game">
+        <script src="{{dir}}/js/home.js"></script>
+    </div>
+    <div class="buttonHeader">
+        <a href="{{URL}}" class="btn btn-success">LOGIN</a>
+        <a href="{{URL}}/home" class="btn btn-primary">HOME</a>
+        <a href="{{URL}}/store" class="btn btn-danger">STORE</a>
+        <a href="{{URL}}/lab" class="btn btn-warning">LABORATORY</a>
     </div>
 </div>
