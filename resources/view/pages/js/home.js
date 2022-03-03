@@ -31,10 +31,10 @@ function preload ()
 function create ()
 {
     //cria o objeto dragable da carta
-    var image = this.add.sprite(200, 1800, 'card').setInteractive();
+    var image = this.add.sprite(200, plantsHeight, 'card').setInteractive();
 
     //remodela  a imágem pra ela ficar na forma da carta
-    image.setScale(0.5, 1)
+    image.setScale(0.2, 0.5)
     this.input.setDraggable(image);
 
     //  The pointer has to move 16 pixels before it's considered as a drag
@@ -43,13 +43,13 @@ function create ()
     //determina que a cor do objeto muda quando estiver sendo arrastado
     this.input.on('dragstart', function (pointer, gameObject) {
 
-        gameObject.setTint(0xf9f);
+        gameObject.setTint(0x2F4F4F);
 
     });
 
     //função que efetivamente arrasta o objeto, pegando sua posição X e Y
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-
+        
         //modendo o objeto para X e Y
         gameObject.x = dragX;
         gameObject.y = dragY;
