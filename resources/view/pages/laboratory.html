@@ -1,62 +1,70 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<style>
+    body,
+    html {
+        width: 100%;
+        overflow-x: hidden;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-</head>
+    body {
+        width: 100%;
+    }
 
-<body>
-    <style>
-        body,
-        html {
-            width: 100%;
-            overflow-x: hidden;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        border: none;
+        resize: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: Poppins, Arial, Helvetica, sans-serif;
+    }
 
-        body {
-            width: 100%;
-        }
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            outline: none;
-            border: none;
-            resize: none;
-            text-decoration: none;
-            box-sizing: border-box;
-            font-family: Poppins, Arial, Helvetica, sans-serif;
-        }
+    .buttonHeader {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+</style>
 
-        .header {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .buttonHeader {
-            width: 100%;
-            justify-content: space-evenly;
-        }
-    </style>
-
-    <div class="header">
-        <h3>{{title}}</h3>
-        <div class="buttonHeader">
-            <a href="{{URL}}"><button class="btn btn-primary">LOGIN</button></a>
-            <a href="{{URL}}/home"><button class="btn btn-primary">HOME</button></a>
-            <a href="{{URL}}/store"><button class="btn btn-primary">STORE</button></a>
-            <a href="{{URL}}/lab"><button class="btn btn-primary">LABORATORY</button></a>
-        </div>
-
+<div class="header">
+    <h3>{{title}}</h3>
+    <div class="buttonHeader">
+        <a href="{{URL}}"><button class="btn btn-primary">LOGIN</button></a>
+        <a href="{{URL}}/home"><button class="btn btn-primary">HOME</button></a>
+        <a href="{{URL}}/store"><button class="btn btn-primary">STORE</button></a>
+        <a href="{{URL}}/lab"><button class="btn btn-primary">LABORATORY</button></a>
     </div>
-    <hr>
+</div>
+<hr>
 
-    <p>{{description}}</p>
-</body>
+<p>{{description}}</p>
 
-</html>
+<input type="text" class="form-control" name="teste" id="teste">
+<button onclick="send()" class="btn btn-primary" id='btn'>enviar</button>
+
+<script>
+    function send() {
+
+        msg = document.getElementById('teste').value
+
+        $.ajax({
+            type: "POST",
+            url: 'http://localhost:8000/test',
+            data: { "arr": msg },
+            success: function (response) {
+
+                console.log(response)
+            },
+            error: function (response) {
+                window.alert('Perdão, tivemos um Erro... Recarregue a página e tente novamente')
+            }
+        });
+    }
+</script>

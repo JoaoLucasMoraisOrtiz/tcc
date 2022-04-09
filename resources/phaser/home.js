@@ -21,6 +21,7 @@ var config = {
 //executa a config do jogo
 var game = new Phaser.Game(config)
 
+
 //pré carrega os assets do jogo
 function preload ()
 {
@@ -30,9 +31,10 @@ function preload ()
 //cria o sprite do jogo
 function create ()
 {
+
     //cria o objeto dragable da carta
     var image = this.add.sprite(200, plantsHeight, 'card').setInteractive();
-
+    
     //remodela  a imágem pra ela ficar na forma da carta
     image.setScale(0.2, 0.5)
     this.input.setDraggable(image);
@@ -69,6 +71,10 @@ function create ()
         gameObject.clearTint()
         if(dropped){
             gameObject.setActive(false).setVisible(false);
+            window.alert('wow')
+            gameObject.x = gameObject.input.dragStartX;
+            gameObject.y = gameObject.input.dragStartY;
+            gameObject.setActive(true).setVisible(true);
         }
 
     });

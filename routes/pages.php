@@ -51,3 +51,12 @@ $obRouter->get('/user/{idUser}', [
         return new Response(200, 'pagina do usuário: ' . $idUser);
     }
 ]);
+
+//está funcionando!!
+$obRouter->post('/test', [
+    function(){
+        $post = $_POST;
+        print_r($post);
+        exit;
+    }
+]);
