@@ -1,0 +1,25 @@
+{
+  "name": "tcc",
+  "version": "1.0.0",
+  "description": "Um jogo P2E no navegador, com NFTs",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon index.js localhost 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoLucasMoraisOrtiz/tcc.git"
+  },
+  "author": "João Lucas Morais Ortiz",
+  "license": "GNU GLP",
+  "bugs": {
+    "url": "https://github.com/JoaoLucasMoraisOrtiz/tcc/issues"
+  },
+  "homepage": "https://github.com/JoaoLucasMoraisOrtiz/tcc#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.2",
+    "phaser": "3.55.*"
+  }
+}

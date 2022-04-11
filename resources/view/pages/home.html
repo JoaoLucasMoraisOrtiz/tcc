@@ -30,44 +30,31 @@
     }
 
     .buttonHeader {
-        width: 100%;
-        text-align: center;
-        justify-content: space-evenly;
+        
+        justify-content: center;
         display: flex;
         flex-direction: column;
     }
 
     .btn {
-        margin-bottom: 2vh;
+        margin: 1vh 8.2vw;
     }
 
     .corpo {
-        height: 72vh;
+        height: 100vh;
         display: flex;
         flex-direction: row;
-    }
-
-    .rodape {
-        height: 28vh;
-        background-color: unset;
     }
 
     .plantas {
-        height: 100%;
         width: 80%;
-        padding-right: calc(50% - 38vw);
-        padding-top: 15vh;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: end;
+        /* padding-right: calc(50% - 38vw); */
     }
 
-    .barra {
-        height: 100%;
-
-        width: 20%;
+    canvas{
+        position: fixed;
     }
+    /* 
 
     .card {
         height: auto;
@@ -89,115 +76,26 @@
         flex-direction: row;
     }
 
-    cardImg {
+    .cardImg {
         width: 2vw, fit-content;
         height: fit-content;
     }
 
-    imgAction{
+    .imgAction{
         min-width: 100px;
     }
-
+ */
 </style>
 
-<div class="container">
-    <div class="corpo">
-        <div class="plantas">
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="{{dir}}/img/botao.png" class="cardImg">
-                    </div>
-                    <div class="down">
-                        <img src="{{dir}}img/Fd.png" class="cardImg"><img src="{{dir}}/img/Tronco.png" class="cardImg"><img
-                            src="{{dir}}/img/Fe.png" class="cardImg">
-                    </div>
-                </div>
-        </div>
-        <div class="barra">
-            <div class="buttonHeader">
-                <a href="{{URL}}"><button class="btn btn-success">LOGIN</button></a>
-                <a href="{{URL}}/home"><button class="btn btn-primary">HOME</button></a>
-                <a href="{{URL}}/store"><button class="btn btn-danger">STORE</button></a>
-                <a href="{{URL}}/lab"><button class="btn btn-warning">LABORATORY</button></a>
-            </div>
-        </div>
-    </div>
 
-    <div class="rodape">
-        <div class="cardAction">
-            <img src="{{dir}}/img/Card.png" class="imgAction">
-        </div>
+<div class="corpo">
+    <div class="plantas" id="game">
+        <script src="{{dir}}/../../phaser/home.js"></script>
+    </div>
+    <div class="buttonHeader">
+        <a href="{{URL}}" class="btn btn-success">LOGIN</a>
+        <a href="{{URL}}/home" class="btn btn-primary">HOME</a>
+        <a href="{{URL}}/store" class="btn btn-danger">STORE</a>
+        <a href="{{URL}}/lab" class="btn btn-warning">LABORATORY</a>
     </div>
 </div>

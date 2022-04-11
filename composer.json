@@ -3,7 +3,9 @@
     "autoload": {
         "psr-4": {
             "App\\" : "app/"
+        },
+        "require": {
+            "curl/curl": "^2.0"
         }
-        
     }
 }

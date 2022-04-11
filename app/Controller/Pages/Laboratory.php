@@ -19,7 +19,7 @@ class Laboratory extends Pages{
         $obOrganization = new Organization;
 
         //Acessa a classe View e realiza o render da home, retornando a resposta da func. render($arg)
-        $pageContent =  View::render('pages/login', [
+        $pageContent =  View::render('pages/laboratory', [
             'title' => 'LABORATÓRIO',
             'description' => '            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi reprehenderit suscipit quis aliquid excepturi culpa omnis porro debitis. Consequatur optio voluptas vel? Repellendus dolorum voluptatibus repellat vero nihil necessitatibus optio!
             '
