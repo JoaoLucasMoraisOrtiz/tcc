@@ -2,9 +2,20 @@
 plantsHeight = document.getElementById('game').clientHeight
 plantsWidth = document.getElementById('game').clientWidth
 
-var load = { "card": 2, 
-             "locationsCards": ['../../../resources/view/pages/img/bgImage.jpg', '../../../resources/view/pages/img/bgImage.jpg', '../../../resources/view/pages/img/bgImage.jpg'],
-             "images": [['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png']]}
+function checkOverlap(spriteA, spriteB) {
+
+    var boundsA = spriteA.getBounds();
+    var boundsB = spriteB.getBounds();
+
+    return Phaser.Rectangle.intersects(boundsA, boundsB);
+
+}
+
+var load = {
+    "card": 2,
+    "locationsCards": ['../../../resources/view/pages/img/bgImage.jpg', '../../../resources/view/pages/img/bgImage.jpg', '../../../resources/view/pages/img/bgImage.jpg'],
+    "images": [['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png'], ['../../../resources/view/pages/img/botao.png', '../../../resources/view/pages/img/Tronco.png', '../../../resources/view/pages/img/Fe.png', '../../../resources/view/pages/img/Fd.png']]
+}
 
 //variável de configuração do phaser com openGL
 var config = {
@@ -18,7 +29,9 @@ var config = {
         preload: preload,
 
         //determina a função de create
-        create: create
+        create: create,
+
+        update: update
     }
 }
 
@@ -35,8 +48,8 @@ function preload() {
     }
 
     for (let index = 0; index <= 8; index++) {
-        
-        this.load.image('button'+index, load.images[index][0]);
+
+        this.load.image('button' + index, load.images[index][0]);
     }
 }
 
@@ -67,14 +80,14 @@ function create() {
     y = 150;
     for (let index = 0; index <= 8; index++) {
 
-        if(li > 2){
+        if (li > 2) {
             x = 250;
             y = y + 100;
             li = 0;
         }
-        var button = this.add.image(x, y, 'button'+index).setInteractive();
+        var button = this.add.image(x, y, 'button' + index).setInteractive();
         button.input.dropZone = true;
-        button.setName('plant'+index);
+        button.setName('plant' + index);
         x = x + 100;
         li = li + 1;
     }
@@ -94,28 +107,33 @@ function create() {
 
     });
 
+    dropZoneList = [this.children.getByName('plant8'), this.children.getByName('plant7'), this.children.getByName('plant6')];
+    
+
+    planta = this.children.getByName('plant8');
+
+}
+
+function update() {
 
     //determina que quando o objeto parar de ser arrastado, ele irá voltar a cor padrão
     this.input.on('dragend', function (pointer, gameObject, dropped) {
 
-        if (!dropped) {
-            gameObject.x = gameObject.input.dragStartX;
-            gameObject.y = gameObject.input.dragStartY;
-        }
-        
-        gameObject.clearTint()
 
-        if (dropped) {
-            console.log();
-            gameObject.setActive(false).setVisible(false);
-            window.alert('wow')
-            gameObject.x = gameObject.input.dragStartX;
-            gameObject.y = gameObject.input.dragStartY;
-            gameObject.setActive(true).setVisible(true);
-        }
+        var scene = this.scene;
+        var parent = this.parentContainer; // only if needed
+        var hit = false, wrongSound = false;
 
+        for (let i = 0; i < dropZoneList.length; i++) {
+            const element = dropZoneList[i];
+
+            if (checkOverlap(this, element)) {
+                console.log(element)
+            }
+            else {
+                console.log(element)
+            }
+        }
     });
-
-    //  Just a visual display of the drop zone
 
 }
